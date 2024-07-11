@@ -17,6 +17,7 @@ print('数据原始类型：',type(text))
 
 # 作为预训练模型，它的目的是学习海量的符号排列组合。
 # 因此它需要的数据可以是任何符合语言学分布规律的文字。
+# 输入任意连续文本
 
 # ————————————————————token化————————————————————————————
 tokenizer = tiktoken.get_encoding("cl100k_base") # 实例化openai的tokenizer

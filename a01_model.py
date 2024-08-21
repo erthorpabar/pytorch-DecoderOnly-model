@@ -6,6 +6,22 @@ from torch.nn import functional as F
 
 import math
 from arg import arg
+
+'''层级结构
+GPT input(B,T)
+-embedding_weights -> x_batch_embedding
+-pos -> pe
+-x = x_batch_embedding + pe
+-transformer_block -> res2_out
+    -norm1
+    -qkv  wo( cat( softmax( mask( Q @ K.T / √dk (Q=wq@x K=wk@x V=wv@x
+
+    -norm2
+    -ffn  缩小n倍( 放大n倍
+-out_norm -> output
+-unembedding_weights -> output_token_value
+
+'''
 # ——————————————————GPT————————————————————————————
 class GPT(nn.Module):
     def __init__(self, arg):  # self 是一个包含定义好模型名称，和参数的类

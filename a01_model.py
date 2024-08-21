@@ -12,7 +12,7 @@ GPT input(B,T)
 -embedding_weights -> x_batch_embedding
 -pos -> pe
 -x = x_batch_embedding + pe
--transformer_block -> res2_out
+-transformer_block  x 12 -> res2_out
     -norm1
     -qkv  wo( cat( softmax( mask( Q @ K.T / √dk (Q=wq@x K=wk@x V=wv@x
 
